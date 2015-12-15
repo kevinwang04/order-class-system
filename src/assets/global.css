@@ -1,0 +1,68 @@
+body {
+  font-family: "Helvetica Neue", Arial;
+  font-weight: 200;
+}
+
+body,html,#example,.container{
+	height: 100%;
+}
+footer{
+	bottom: 0;
+}
+h1, h2, h3 {
+  font-weight: 100;
+}
+
+a {
+  color: hsl(200, 50%, 50%);
+}
+
+a.active {
+  color: hsl(20, 50%, 50%);
+}
+
+.breadcrumbs a {
+  text-decoration: none;
+}
+
+th{
+	text-align: center;
+}
+
+.loginBtn{
+	margin: 20px auto;
+	padding-left: 90px;
+
+}
+
+.app-neworder{
+	padding-top: 15px;
+	padding-left: 80px;
+	background-color: #eee;
+	vertical-align: middle;
+}
+
+.app-neworder div,.app-neworder select{
+	display: inline-block;
+}
+.app-neworder label{
+	margin-left: 20px;
+}
+.app-neworder textarea{
+	margin: 18px!important;
+}
+.app-neworder .am-btn{
+	position: absolute;
+	margin-left: 40px;
+	margin-top: 58px;
+}
+.show-qrcode{
+	margin-left: 15px;
+}
+.timetable h4{
+	max-width: 160px;
+	margin: 15px auto!important;
+}
+.glyphicon-eject:hover{
+	color: #999;
+}
