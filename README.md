@@ -1,6 +1,6 @@
 # order-class-system
 
- 为学院写的一个教室预定系统
+ 为学院写的一个教室预定系统 ,使用react + flux
 
 ## 安装依赖
 
