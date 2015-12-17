@@ -1,3 +1,10 @@
+/**
+ * Author kevinwang
+ * 2015-12-6
+ * user-header page
+ */
+
+
 /** @jsx React.DOM */
 var React = require('react');
 var Router = require('react-router');
@@ -17,21 +24,24 @@ var Header = React.createClass({
   getInitialState: function () {
     return {
       auth: AuthStore.getState(),
-      userInfo: {}
+      userInfo: AuthStore.getUserInfo()
     }
   },
   setStateOnAuth: function (loggedIn) {
     this.setState(AuthStore.getState());
   },
   componentWillMount: function () {
-    AuthAction.getUserinfo();
     AuthStore.authOnChangeHeader(this.setStateOnAuth);
-    //AuthAction.getInfo();
-
+    this.state.auth.loggedIn ? AuthAction.getUserinfo() : ''
   },
   componentDidMount: function() {
+
     AuthStore.addChangeListener(this._onChange)
   },
+  componentWillUnmount: function() {
+    AuthStore.removeChangeListener(this._onChange);
+  },
+
   _onChange: function() {
     this.setState({
       auth: AuthStore.getState(),

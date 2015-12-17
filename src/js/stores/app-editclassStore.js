@@ -1,3 +1,9 @@
+/**
+ * Author kevinwang
+ * 2015-12-6
+ * edit-class store
+ */
+
 var AppDispatcher = require('../dispatchers/app-dispatcher');
 var AppConstants = require('../constants/app-constants');
 var EventEmitter = require('events').EventEmitter;
@@ -27,7 +33,6 @@ var AppStore = React.addons.update(EventEmitter.prototype, {$merge: {
   setAdminDate: function(params){
     _date = params;
     _firstDate = params[0].id;
-    console.log(_date);
   },
   getAdminDate: function() {
     return _date;
@@ -53,16 +58,6 @@ var AppStore = React.addons.update(EventEmitter.prototype, {$merge: {
       AppStore.setArrangement(action.data);
       break;
 
-
-
-
-      //case AppConstants.REFRESH_ORDER:
-
-      /* SHORT USAGE BOILERPLATE (EXAMPLE - uncomment if required)
-      case AppConstants.ADD_ITEM:
-        _addItem(payload.action.item);
-        break;
-      */
     }
     AppStore.emitChange();
 

@@ -1,3 +1,10 @@
+/**
+ * Author kevinwang
+ * 2015-12-6
+ * auth store
+ */
+
+
 var AppDispatcher = require('../dispatchers/app-dispatcher');
 var AppConstants = require('../constants/app-constants');
 var EventEmitter = require('events').EventEmitter;
@@ -12,7 +19,6 @@ var _authData = {
       auth_token: null,
       loggedIn: !!localStorage.token
     };
-    // your state container where
 var _userInfo = {};
 
 
@@ -20,7 +26,6 @@ var _userInfo = {};
 
 var _auth = {
   login: function (params, cb) {
-    console.log('loggin',params);
     cb = cb || function(backdata){};
 
     if (localStorage.token) {
@@ -67,7 +72,6 @@ var _auth = {
   },
   FbOauthRequest: function (response) {
     fb_token = response.fb_token;
-    console.log(fb_token);
     if (fb_token) {
       localStorage.token = fb_token;
       this.onChange(true); // triggering header to update state
@@ -168,10 +172,7 @@ var AuthStore = React.addons.update(EventEmitter.prototype, {$merge: {
       case AppConstants.GET_USER_INFO:
       AuthStore.setUserinfo(action.data.data);
       break;
-      // below is just a boiler plate (uncomment if required)
-      // case AppConstants.FB_OAUTH_TOKEN_SUCCESS:
-      //   _FbOauthRequest(action.response);
-      //   break;
+
     }
     AuthStore.emitChange();
 

@@ -1,3 +1,9 @@
+/**
+ * Author kevinwang
+ * 2015-12-6
+ * orderList store
+ */
+
 var AppDispatcher = require('../dispatchers/app-dispatcher');
 var AppConstants = require('../constants/app-constants');
 var EventEmitter = require('events').EventEmitter;
@@ -9,7 +15,7 @@ var CHANGE_EVENT = "change";
 var _scheduleList = [];
 
 function _addItem(item){
-  console.log("Dashboard");
+
 }
 
 /**
@@ -32,12 +38,7 @@ var AppStore = React.addons.update(EventEmitter.prototype, {$merge: {
     this.removeListener(CHANGE_EVENT, callback)
   },
   setScheduleList: function(params){
-    /*for (i = 0; i < params.length; i++){
-      _scheduleList[i] = params[i];
-    }*/
-    //_scheduleList.push(params);
     _scheduleList = params;
-    console.log(_scheduleList);
   },
   getScheduleList: function() {
     return _scheduleList;
@@ -60,14 +61,6 @@ var AppStore = React.addons.update(EventEmitter.prototype, {$merge: {
       case AppConstants.GET_USER_INFO:
       AppStore.setUserinfo(action.data);
       break;
-
-      //case AppConstants.REFRESH_ORDER:
-
-      /* SHORT USAGE BOILERPLATE (EXAMPLE - uncomment if required)
-      case AppConstants.ADD_ITEM:
-        _addItem(payload.action.item);
-        break;
-      */
     }
     AppStore.emitChange();
 

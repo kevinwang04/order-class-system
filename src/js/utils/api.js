@@ -1,43 +1,14 @@
+/**
+ * Author kevinwang
+ * 2015-12-6
+ * util part (ajax)
+ */
+
 var AppConstants = require('../constants/app-constants');
 var AppDispatcher = require('../dispatchers/app-dispatcher');
 
 var $ = require('jquery');
 
-// 
-// TODO - structure AppConstants for API as for example: http://www.code-experience.com/async-requests-with-react-js-and-flux-revisited/
-// 
-// console.log("********** utils/api.js init");
-
-function ajaxPost(url,data,cb) {
-    $.ajax({
-            url: url,
-            type: 'POST',
-            dataType: 'JSONP',
-            jsonp: 'callback',
-            data: data,
-            success: function(data, textStatus){
-                    if(data.code === 0) {
-                        cb(data);
-                       /* if (data.data.type === 0) {
-                            //location.pathname = "/code/dist/html/apps/scce.kalen25115.cn/user/user-manage.html";
-                            AppDispatcher.handleViewAction({'actionType': AppConstants.AUTH_LOG_IN,'code':0})
-                        }else if(data.data.type === 1) { 
-                            //location.pathname = "/code/dist/html/apps/scce.kalen25115.cn/user/user-manage.html";
-                            AppDispatcher.handleViewAction({'actionType': AppConstants.AUTH_LOG_IN,'code':1})
-                        }*/
-                    }else{
-                        swal({title: data.msg,   text: "", confirmButtonColor: "#ff0000",   timer: 800 });
-                    }
-                },
-            complete: function(XMLHttpRequest, textStatus){
-                
-            },
-            error:function(e) {
-                console.log(e);
-                swal({title: '网络失败',   text: "", confirmButtonColor: "#ff0000",   timer: 800 });
-            }
-        });
-}
 
 var API_URL = '/assets/api.json';
 var TIMEOUT = 10000;
@@ -109,6 +80,7 @@ function post(url,params) {
         // Calling the end function will send the request 
       })
 }
+
 var Api = {
     getEntityData: function(entityId) {
         var url = makeUrl("?test="+entityId);

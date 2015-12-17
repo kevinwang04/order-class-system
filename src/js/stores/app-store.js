@@ -1,3 +1,9 @@
+/**
+ * Author kevinwang
+ * 2015-12-6
+ * App store
+ */
+
 var AppDispatcher = require('../dispatchers/app-dispatcher');
 var AppConstants = require('../constants/app-constants');
 var EventEmitter = require('events').EventEmitter;
@@ -9,8 +15,6 @@ var CHANGE_EVENT = "change";
 var _cartItems = [];
 
 function _addItem(item){
-  console.log("ADD ITEM done - just an example");
-  alert("ADD ITEM done - just an example - check the console log for an output");
   _cartItems.push(Math.random());
 }
 

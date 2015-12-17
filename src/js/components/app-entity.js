@@ -27,12 +27,7 @@ var Entity = React.createClass({
     },
     _onChange: function() {this.setState(EntityStore.getState());},
     render: function() {
-        console.log("got web api data while renedering");
-        console.log(this.state); 
-        // This console log this.state data comes from an api call 
-        // via Action Creator (EntityActions.getEntityData) -> utils/api.js -> dispatcher.
-        // All the code in the EntityStore is synchronous thanks for that data flow
-        // thus the code is more maintainable and much better structurized
+
         return (
             <div className="well"> This is Entity Component Uses Proper Flux Architecture for Getting Async Web Api Calls (check console log for more details) </div>
             )

@@ -1,3 +1,10 @@
+/**
+ * Author kevinwang
+ * 2015-12-6
+ * new-order page
+ */
+
+
 /** @jsx React.DOM */
 var React = require('react');
 var Login = require('../auth/app-login');
@@ -116,26 +123,36 @@ var Neworder = React.createClass({
         return <option value={item.id} key={i}>{item.time_info}</option>
     });
     return (
-    <div className="app-neworder" style={{width:"1000px",margin:"0 auto"}}>
-      <label>选择日期:</label>
-      <AMZ.Input type="select" ref='date_ref' style={{width:"150px",margin:"15px"}} onChange={this.handleShowValidtime}>
-        {DateList}
-      </AMZ.Input>
-
-      <label>选择教室:</label>
-      <AMZ.Input type="select" ref='classroom_ref' style={{width:"150px",margin:"15px"}} onChange={this.handleShowValidtime}>
-        {ClassRoomList}
-      </AMZ.Input>
-
-      <label>选择时间:</label>
-      <AMZ.Input type="select" ref='time_ref' style={{width:"150px",margin:"15px"}} >
-        {TimeList}
-      </AMZ.Input>
+    <div className="app-neworder" style={{margin:"0 auto"}}>
+      <AMZ.Grid className="doc-g">
+        <AMZ.Col sm={12} md={4} lg={4}>
+          <label>选择日期:</label>
+          <AMZ.Input type="select" ref='date_ref' style={{width:"150px",margin:"15px"}} onChange={this.handleShowValidtime}>
+            {DateList}
+          </AMZ.Input>
+        </AMZ.Col>
+        <AMZ.Col sm={12} md={4} lg={4}>
+          <label>选择教室:</label>
+          <AMZ.Input type="select" ref='classroom_ref' style={{width:"150px",margin:"15px"}} onChange={this.handleShowValidtime}>
+            {ClassRoomList}
+          </AMZ.Input>
+        </AMZ.Col>
+        <AMZ.Col sm={12} md={4} lg={4}>
+          <label>选择时间:</label>
+          <AMZ.Input type="select" ref='time_ref' style={{width:"150px",margin:"15px"}} >
+            {TimeList}
+          </AMZ.Input>
+        </AMZ.Col>
+      </AMZ.Grid>
+      <AMZ.Grid className="doc-g">
+        <AMZ.Col sm={6} md={6} lg={6}>
+          <AMZ.Input type="textarea" ref='reason_ref' label="事由说明:" style={{width:"100%",margin:"30px"}} placeholder="填写事由" />
+        </AMZ.Col>
+        <AMZ.Col sm={6} md={6} lg={4}>
+          <AMZ.Input type="submit" value="提交" standalone amStyle="primary" onClick={this.handleSubmit} />
+        </AMZ.Col>
+      </AMZ.Grid>
       
-
-      <AMZ.Input type="textarea" ref='reason_ref' label="事由说明:" style={{width:"400px",margin:"30px"}} placeholder="填写事由" />
-
-      <AMZ.Input type="submit" value="提交" standalone amStyle="primary" onClick={this.handleSubmit} />
     </div>
 
     )

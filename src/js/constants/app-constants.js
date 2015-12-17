@@ -1,6 +1,10 @@
-// 
-// TODO - structure AppConstants for API as for example: http://www.code-experience.com/async-requests-with-react-js-and-flux-revisited/
-// 
+/**
+ * Author kevinwang
+ * 2015-12-6
+ * Flux Constants
+ */
+
+
 module.exports = {
   ADD_ITEM: 'ADD_ITEM',
   TIMEOUT: 'TIMEOUT',

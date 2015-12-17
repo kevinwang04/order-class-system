@@ -66,3 +66,19 @@ th{
 .glyphicon-eject:hover{
 	color: #999;
 }
+@media screen and (max-width: 650px){
+	.app-neworder{
+	padding-top: 15px;
+	padding-left: 15%;
+	background-color: #eee;
+	vertical-align: middle;
+	}
+}
+@media screen and (min-width: 650px) and (max-width:1000px){
+	.app-neworder{
+	padding-top: 15px;
+	padding-left: 10px;
+	background-color: #eee;
+	vertical-align: middle;
+	}
+}

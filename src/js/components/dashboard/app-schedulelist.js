@@ -1,3 +1,10 @@
+/**
+ * Author kevinwang
+ * 2015-12-6
+ * orderList page
+ */
+
+
 /** @jsx React.DOM */
 var React = require('react');
 var Login = require('../auth/app-login');
@@ -32,7 +39,6 @@ var ScheduleList = React.createClass({
     this.setState(
       getStoreOrder()
     );
-    console.log(this.state);
   },
   handleShowCode: function(e,url){
     window.open(url,"_blank");
@@ -40,10 +46,10 @@ var ScheduleList = React.createClass({
   handleSort: function(item) {
     var scheduleList = this.state.scheduleList.sort(function (a, b) {
         if (a[item] > b[item]) {
-          return -1;
+          return 1;
         }
         if (a[item] < b[item]) {
-          return 1;
+          return -1;
         }
         /// a must be equal to b
         return 0;
@@ -89,13 +95,49 @@ var ScheduleList = React.createClass({
               swal("取消", "取消操作 :)", "error");   
             } 
           });          
-        }
+        };
+        function handleShowFeedback(feedback) {
+          swal(feedback || '管理员未填写反馈');    
+        };
         if (item.status == 1) {
-          return <tr key={i}><td>{item.date}</td><td>{item.time.time_info}</td><td>{item.classroom.room_num}</td><td>{item.reason}</td><td className={textColor}>{status}<button type="" target="blank" className="show-qrcode btn-success" onClick={function(){window.open(item.result_url,"_blank")}}>查看二维码</button></td></tr>
+          return <tr key={i}>
+          <td>{item.date}</td>
+          <td>{item.time.time_info}</td>
+          <td>{item.classroom.room_num}</td>
+          <td>{item.reason}</td>
+          <td className={textColor}>{status}
+          <button type="" target="blank" className="show-qrcode btn-success" onClick={function(){window.open(item.result_url,"_blank")}}>二维码</button>
+          <button type="" className="show-qrcode btn-info" onClick={handleShowFeedback.bind(this,item.feedback)}>查看反馈</button>
+          </td>
+          </tr>
         }else if(item.status == 0){
-          return <tr key={i}><td>{item.date}</td><td>{item.time.time_info}</td><td>{item.classroom.room_num}</td><td>{item.reason}</td><td className={textColor}>{status}<button type="" target="blank" className="show-qrcode btn-danger" onClick={handleCancel.bind(this,item.id)}>取消预订</button></td></tr>
-        }else{
-          return <tr key={i}><td>{item.date}</td><td>{item.time.time_info}</td><td>{item.classroom.room_num}</td><td>{item.reason}</td><td className={textColor}>{status}</td></tr>
+          return <tr key={i}>
+          <td>{item.date}</td>
+          <td>{item.time.time_info}</td>
+          <td>{item.classroom.room_num}</td>
+          <td>{item.reason}</td>
+          <td className={textColor}>{status}
+          <button type="" className="show-qrcode btn-danger" onClick={handleCancel.bind(this,item.id)}>取消预订</button>
+          </td>
+          </tr>
+        }else if(item.status == 2){
+          return <tr key={i}>
+          <td>{item.date}</td>
+          <td>{item.time.time_info}</td>
+          <td>{item.classroom.room_num}</td>
+          <td>{item.reason}</td>
+          <td className={textColor}>{status}
+          <button type="" className="show-qrcode btn-info" onClick={handleShowFeedback.bind(this,item.feedback)}>查看反馈</button>
+          </td>
+          </tr>
+        }else {
+          return <tr key={i}>
+          <td>{item.date}</td>
+          <td>{item.time.time_info}</td>
+          <td>{item.classroom.room_num}</td>
+          <td>{item.reason}</td>
+          <td className={textColor}>{status}</td>
+          </tr>
         }
     });
     return (

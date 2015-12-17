@@ -13,10 +13,8 @@ var _entityList = [
 
 
 function _persistEntityData(response) {
-	console.log("Entity gets async data from web api stores /app-entity.js");
+
   _entityList = response;
-    // do whatever you need to do with the response to store
-    // the state
 }
 
 

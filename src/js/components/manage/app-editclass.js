@@ -1,3 +1,10 @@
+/**
+ * Author kevinwang
+ * 2015-12-6
+ * edit-class page
+ */
+
+
 /** @jsx React.DOM */
 var React = require('react');
 var Login = require('../auth/app-login');

@@ -1,3 +1,10 @@
+/**
+ * Author kevinwang
+ * 2015-12-6
+ * footer page
+ */
+
+
 /** @jsx React.DOM */
 var React = require('react');
 

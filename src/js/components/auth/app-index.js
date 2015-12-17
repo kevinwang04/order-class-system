@@ -1,3 +1,10 @@
+/**
+ * Author kevinwang
+ * 2015-12-6
+ * index page
+ */
+
+
 /** @jsx React.DOM */
 var React = require('react');
 var Router = require('react-router');
@@ -18,10 +25,8 @@ var Index = React.createClass({
       error: false
     };
   },
-
   componentDidMount: function() {
     AuthStore.addChangeListener(this._onChange);
-    //FbOauthActions.fbLoginPageLoaded();
   },
   componentWillUnmount: function() {
     AuthStore.removeChangeListener(this._onChange);
@@ -30,8 +35,6 @@ var Index = React.createClass({
     FbOauthActions.startOauth();
   },
   _onChange: function() {
-    // when user is logged in, the Router redirects
-    // to dashboard
     if(AuthStore.getState().loggedIn){
       this.replaceWith('/dashboard'); // replaceWith comes from Router (included in mixins)
     }
@@ -40,7 +43,7 @@ var Index = React.createClass({
     return (
       <div>
       
-      <p style={{textAlign:"center"}}>
+      <p style={{textAlign:"center",marginTop:"80px"}}>
         <AMZ.Badge amStyle="primary" className="am-text-sm">欢</AMZ.Badge>
         <AMZ.Badge amStyle="secondary" className="am-text-default">迎</AMZ.Badge>
         <AMZ.Badge amStyle="success" className="am-text-lg">使</AMZ.Badge>

@@ -1,3 +1,9 @@
+/**
+* Author kevinwang
+* 2015-12-06
+* 系统使用说明页面，需登录可以查看
+*/
+
 /** @jsx React.DOM */
 var React = require('react');
 var Login = require('../auth/app-login');
@@ -7,6 +13,7 @@ var AuthenticationMixin = require('../../mixins/AuthenticationMixin.js');
 var AMZ = require('amazeui-react');
 
 var About = React.createClass({
+  
   mixins: [ AuthenticationMixin ],
   render: function () {
     return (

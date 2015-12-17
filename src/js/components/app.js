@@ -1,3 +1,10 @@
+/**
+ * Author kevinwang
+ * 2015-12-6
+ * APP page
+ */
+
+
 /** @jsx React.DOM */
 var React = require('react');
 var RouteHandler = require('react-router').RouteHandler;
@@ -9,7 +16,7 @@ var APP = React.createClass({
     return (
       <Template>
         <RouteHandler/>
-     { /* this Entity component uses view request dispatcher for web api call and it is using flux architecture */ }
+     	{}
       </Template>
     );
   }

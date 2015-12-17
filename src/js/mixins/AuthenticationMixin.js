@@ -1,3 +1,10 @@
+/**
+ * Author kevinwang
+ * 2015-12-6
+ * login-or-out judge
+ */
+
+
 /** @jsx React.DOM */
 var Login = require('../components/auth/app-login');
 var AuthStore = require('../stores/app-authStore.js');

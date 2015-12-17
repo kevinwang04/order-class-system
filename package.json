@@ -1,7 +1,7 @@
 {
-  "name": "flux",
-  "version": "0.1.0",
-  "description": "",
+  "name": "order-class",
+  "version": "1.0",
+  "description": "a room order system",
   "main": "gulpfile.js",
   "dependencies": {
     "amazeui-react": "^1.0.0-beta2",
@@ -34,6 +34,6 @@
   "scripts": {
     "watch": "gulp watch"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "kevinwang",
+  "license": "MIT"
 }

@@ -1,3 +1,9 @@
+/**
+ * Author kevinwang
+ * 2015-12-6
+ * entry main page
+ */
+
 var React = require('react');
 var Router = require('react-router');
 var Route = Router.Route;

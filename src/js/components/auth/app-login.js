@@ -1,9 +1,16 @@
+/**
+ * Author kevinwang
+ * 2015-12-6
+ * login page
+ */
+
+
+
 /** @jsx React.DOM */
 var React = require('react');
 var Router = require('react-router');
 var AuthStore = require('../../stores/app-authStore.js');
 var AuthAction = require('../../actions/app-auth.js');
-//var FbLoginButton = require('./app-fbloginbutton.js');
 
 var AMZ = require('amazeui-react');
 

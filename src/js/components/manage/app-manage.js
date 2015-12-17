@@ -1,3 +1,10 @@
+/**
+ * Author kevinwang
+ * 2015-12-6
+ * manage-order page
+ */
+
+
 /** @jsx React.DOM */
 var React = require('react');
 var Login = require('../auth/app-login');
@@ -37,10 +44,10 @@ var About = React.createClass({
   handleSort: function(item) {
     var neworder = this.state.neworderList.sort(function (a, b) {
         if (a[item] > b[item]) {
-          return -1;
+          return 1;
         }
         if (a[item] < b[item]) {
-          return 1;
+          return -1;
         }
         /// a must be equal to b
         return 0;
@@ -55,13 +62,27 @@ var About = React.createClass({
     var neworder = this.state.neworderList;
     var neworderList = neworder.map(function(item, i) {
       function handleAgree(e,i) {
-        var feed = window.prompt("反馈(可不填)");
+        var feed = window.prompt("反馈（可不填)");
         var data = {
           order_id: e,
           status: 1,
           feedback: feed
         };
-        ManageAction.handleOrder(data);
+        swal({   
+          title: "确认操作？",   
+          text: "将要同意申请",   
+          type: "info",   
+          showCancelButton: true,   
+          closeOnConfirm: false,   
+          showLoaderOnConfirm: true, 
+        }, 
+        function(){   
+          setTimeout(function(){
+          ManageAction.handleOrder(data);     
+            swal({title: "操作成功!",timer:800});   
+          }, 200); 
+        });
+        
       };
       function handleRefuse(e,i) {
         var feed = window.prompt("拒绝理由（可不填)");
@@ -70,7 +91,24 @@ var About = React.createClass({
           status: 2,
           feedback: feed
         };
-        ManageAction.handleOrder(data);
+        swal({   
+          title: "确认操作？",   
+          text: "将要拒绝申请",   
+          type: "info",   
+          showCancelButton: true,   
+          closeOnConfirm: false,   
+          showLoaderOnConfirm: true, 
+        }, 
+        function(){   
+          setTimeout(function(){
+          ManageAction.handleOrder(data);     
+            swal({title: "操作成功!",timer:800});   
+          }, 200); 
+        });
+        
+      };
+      function handleShowFeedback(feedback) {
+          swal(feedback || '未填写反馈');    
       };
       var status = '',
             textColor = '';
@@ -93,7 +131,8 @@ var About = React.createClass({
         }else{
           return <tr key={i}><td>{item.date}</td><td>{item.time}</td><td>{item.classroom}</td><td>{item.reason}</td>
           <td>{item.user.name}</td><td>{item.user.unit_info}</td>
-          <td className={textColor}>{status}</td></tr>
+          <td className={textColor}>{status}<button type="" className="show-qrcode btn-info" onClick={handleShowFeedback.bind(this,item.feedback)}>查看反馈</button>
+          </td></tr>
         }
   
     })

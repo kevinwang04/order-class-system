@@ -1,3 +1,10 @@
+/**
+ * Author kevinwang
+ * 2015-12-6
+ * template page
+ */
+
+
 /** @jsx React.DOM */
 var React = require('react');
 var AuthStore = require('../stores/app-authStore.js');

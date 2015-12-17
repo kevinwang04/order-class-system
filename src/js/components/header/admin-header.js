@@ -1,3 +1,10 @@
+/**
+ * Author kevinwang
+ * 2015-12-6
+ * admin-header page
+ */
+
+
 /** @jsx React.DOM */
 var React = require('react');
 var Router = require('react-router');
@@ -23,9 +30,8 @@ var AdminHeader = React.createClass({
   },
   componentWillMount: function () {
     AuthStore.authOnChangeHeader(this.setStateOnAuth);
-    //AuthAction.getInfo();
-
   },
+
   handleBackTop: function() {
     var timer = null;
     
